@@ -1,110 +1,115 @@
 {
-    // ZEN MODE ---------------------------
-    "editor.guides.indentation":false,
-    // NORMAL MODE ------------------------
-    "editor.rulers": [80,120],
-    // "editor.rulers": [80, 120],
-    // "editor.guides.indentation": true,
-    "editor.guides.highlightActiveIndentation": true,
-    
-    // BASE
-    "editor.minimap.enabled": true,
-    // "editor.minimap.autohide": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.tree.indent": 20,
-    "workbench.activityBar.location": "hidden",
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 1.8,
-    "editor.scrollbar.verticalScrollbarSize": 16,
-    "editor.renderLineHighlight":"none",
-    "editor.fontLigatures": false,
-    "workbench.editor.labelFormat": "short",
-    "breadcrumbs.icons": false,
-    "editor.padding.top": 10,
-    "breadcrumbs.symbolPath": "off",
-    "explorer.compactFolders": false,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "auto",
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.statusBar.visible": true,
-    "window.menuBarVisibility":"toggle",
-    "workbench.layoutControl.enabled": false,
-    "terminal.integrated.fontSize": 14,
-    "[css]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "workbench.colorTheme": "Catppuccin Macchiato",
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "Vue.volar"
-    },
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
-    },
-    "extensions.autoUpdate": true,
-    "symbols.hidesExplorerArrows": false,
-    "workbench.iconTheme": "symbols",
-    "vscode_custom_css.imports": [
-        "file:///C:/Aplicativos/vs-code-custom-css/custom-css.css"
-    ],
-    "bladeFormatter.format.noMultipleEmptyLines": true,
-    "bladeFormatter.format.enabled": true,
-    "bladeFormatter.format.wrapAttributes": "preserve",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "explorer.fileNesting.patterns": {
-        "*.ts": "${capture}.js",
-        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-        "*.jsx": "${capture}.js",
-        "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
-        "*.sqlite": "${capture}.${extname}-*",
-        "*.db": "${capture}.${extname}-*",
-        "*.sqlite3": "${capture}.${extname}-*",
-        "*.db3": "${capture}.${extname}-*",
-        "*.sdb": "${capture}.${extname}-*",
-        "*.s3db": "${capture}.${extname}-*"
-    },
-    "explorer.confirmDelete": false,
-    "database-client.autoSync": true,
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-    
-    "gitlens.currentLine.enabled": false,
-    "gitlens.codeLens.authors.enabled":false,
-    "gitlens.blame.separateLines": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "terminal.integrated.allowedLinkSchemes": [
-        "file",
-        "http",
-        "https",
-        "mailto",
-        "vscode",
-        "vscode-insiders",
-        "docker-desktop"
-    ],
-    "terminal.integrated.env.windows": {},
-    "console-ninja.featureSet": "Community",
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.navigationControl.enabled": false,
-    "chat.commandCenter.enabled": false,
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 0.5,
+
+  "security.workspace.trust.untrustedFiles": "open",
+  "chat.commandCenter.enabled": false,
+
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.editor.labelFormat": "short",
+  "workbench.iconTheme": "symbols",
+  "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "none",
+
+  "explorer.compactFolders": false,
+  "explorer.decorations.badges": true,
+  "explorer.decorations.colors": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  },
+  "explorer.confirmDelete": false,
+
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 14,
+  "editor.formatOnSaveMode": "modifications",
+  "editor.guides.indentation": false,
+  "editor.lineHeight": 1.8,
+  "editor.padding.top": 10,
+  "editor.renderLineHighlight": "none",
+  "editor.rulers": [80, 120],
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "auto",
+  "editor.scrollbar.verticalScrollbarSize": 16,
+
+  "breadcrumbs.icons": false,
+  "breadcrumbs.symbolPath": "off",
+
+  "extensions.autoUpdate": true,
+  "errorLens.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  },
+  "gitlens.blame.separateLines": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "supermaven.enableFixWithSupermaven": true,
+  "symbols.hidesExplorerArrows": false,
+
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.fontSize": 14,
+
+  "files.associations": {
+    "*.blade.php": "php"
+  },
+
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
