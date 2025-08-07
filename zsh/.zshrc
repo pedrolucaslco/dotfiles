@@ -103,10 +103,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# GITHUB DESKTOP -----------------------------
+
 # enable ssh key bitbucket
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/bitbucket
-ssh-add ~/.ssh/id_ed25519
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/bitbucket
+# ssh-add ~/.ssh/id_ed25519
+
+# usa o ssh-agent do .profile (não inicia outro)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# -------------------------------------------
 
 # oh my posh
 export PATH="$HOME/.local/bin:$PATH"
