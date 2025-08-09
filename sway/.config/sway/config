@@ -86,7 +86,10 @@ floating_modifier $mod
 #tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
+
+# start file explorer
+bindsym $mod+e exec nautilus
 
 # kill focused window
 bindsym $mod+q kill
@@ -135,9 +138,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
