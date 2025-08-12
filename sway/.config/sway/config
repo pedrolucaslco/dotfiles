@@ -247,10 +247,10 @@ exec_always killall waybar && waybar
 
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 8px
+gaps inner 6px
 
 # Outer gaps for all windows: space along the screen edges.
-gaps outer 8px
+gaps outer 6px
 
 #new_window pixel 0
 #new_float pixel 0
