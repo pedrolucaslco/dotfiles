@@ -118,14 +118,8 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # oh my posh
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_macchiato.omp.json)"
+#eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zash.omp.json)"
 
-# aliases
-alias fastfetch='fastfetch -l small'
-alias ..='cd ..'
-alias ../..='cd ../..'
-alias update='sudo apt update %% sudo apt upgrade'
-alias flutter-rerun='flutter clean && flutter pub get && flutter run'
-alias msedit-obsidian=msedit ~/Obsidian/Notes
 
 # clear terminal input on launch
 clear
@@ -133,10 +127,28 @@ clear
 echo ''
 
 # run fastfetch
-fastfetch
+fastfetch -l small
 
 echo ''
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ------------------------------------------------------------------
+
+# aliases
+alias fastfetch='fastfetch -l small'
+alias ..='cd ..'
+alias ../..='cd ../..'
+alias update='sudo apt update && sudo apt upgrade && sudo apt autoremove'
+alias flutter-rerun='flutter clean && flutter pub get && flutter run'
+alias msedit-obsidian=msedit ~/Obsidian/Notes
+alias battery='upower -i $(upower -e | grep BAT)'
+alias gte="gnome-text-editor"
+alias nala="sudo nala"
+alias windows11="~/scripts/launch-windows.sh"

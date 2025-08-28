@@ -6,7 +6,7 @@
   "chat.commandCenter.enabled": false,
 
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.iconTheme": "symbols",
   "workbench.layoutControl.enabled": false,
@@ -39,7 +39,7 @@
   "editor.fontLigatures": false,
   "editor.fontSize": 14,
   "editor.formatOnSaveMode": "modifications",
-  "editor.guides.indentation": false,
+  "editor.guides.indentation": true,
   "editor.lineHeight": 1.8,
   "editor.padding.top": 10,
   "editor.renderLineHighlight": "none",
