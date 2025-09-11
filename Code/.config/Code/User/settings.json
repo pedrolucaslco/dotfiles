@@ -1,14 +1,14 @@
 {
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 0.5,
-
   "security.workspace.trust.untrustedFiles": "open",
   "chat.commandCenter.enabled": false,
-
+  
   "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.iconTheme": "symbols",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
