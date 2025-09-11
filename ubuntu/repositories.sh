@@ -1,20 +1,27 @@
 #!/bin/bash
 
-# Fastfetch PPA
-sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+APP_REPOSITORIES=(
+    # add hashtag to dismiss a repository from being added
+    fastfetch
+    tableplus
+    docker
+    brave-browser
 
-# TablePlus Repo
-sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/24 tableplus main"
-wget -qO - https://deb.tableplus.com/apt.tableplus.com.gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/tableplus-archive.gpg > /dev/null
+    # github-desktop
+    mwt-desktop
+)
 
-# GitHub Desktop Mirror - https://github.com/shiftkey/desktop
-wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/mwt-desktop.gpg > /dev/null
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list'
+#make a foreach loop to add all repositories, if exists on variable, switch case to add each one
+for repo in "${APP_REPOSITORIES[@]}"; do
+    echo "-> Checking for $repo repository..."
+    
+    if ! ls /etc/apt/sources.list.d/*"$repo"* &>/dev/null \
+       || ! grep -rq "$repo" /etc/apt/sources.list.d/; then
+        echo "   $repo repository not found. Adding..."
+        source ./repositories/$repo.sh
+    else
+        echo "   $repo repository already exists. Skipping..."
+    fi
+done
 
-# Docker Repo
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Brave Browser Repo
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
+echo "==> All configured repositories added."
