@@ -30,6 +30,7 @@ FLATPAK_PACKAGES=(
   com.mattjakeman.ExtensionManager
   com.belmoussaoui.Authenticator
   app.zen_browser.zen
+  io.gitlab.adhami3310.Converter
 )
 
 BREW_PACKAGES=(

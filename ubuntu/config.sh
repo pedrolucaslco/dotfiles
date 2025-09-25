@@ -45,6 +45,12 @@ echo "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindi
 # ------------------------------------------------------------------------------
 # Set flameshot (with the sh fix for starting under Wayland) on alternate print screen key
 
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom2/ name 'Flameshot OCR'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom2/ command 'sh -c -- "flameshot gui --raw -p Imagens/ | tesseract stdin stdout -l por | xclip -selection clipboard && notify-send 'OCR' 'Texto copiado para o clipboard'"'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom2/ binding '<Super><Shift>S'
+
+
+
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom1/ name 'Flameshot'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom1/ command 'sh -c -- "flameshot gui"'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom1/ binding '<Super><Shift>S'
@@ -98,3 +104,54 @@ gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
 
 # To restore
 # gsettings set org.freedesktop.ibus.panel.emoji hotkey "['<Super>period', '<Super>semicolon']"
+
+
+# ------------------------------------------------------------------------------
+# Otimizações a Nível MACOS -----------------------------------------------------
+# ------------------------------------------------------------------------------
+# Todo
+# - [ ] Verificar se pc possui pelo menos 8gb de ram pra poder mexer no swap
+
+set -e
+
+echo "[1/4] Ajustando sysctl (swappiness e cache pressure)..."
+cat <<EOF | sudo tee /etc/sysctl.d/99-memory-tuning.conf > /dev/null
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+EOF
+sudo sysctl --system
+
+echo "[2/4] Instalando zram-tools..."
+sudo apt install -y zram-tools
+
+echo "[3/4] Configurando zram..."
+sudo bash -c 'cat > /etc/default/zramswap <<EOF
+# Algoritmo de compressão
+ALGO=lz4
+
+# Percentual de RAM usado (40% de 12GB ≈ 4.8GB)
+PERCENT=40
+
+# Deixe SIZE vazio pra usar o percentual
+SIZE=
+EOF'
+
+echo "[4/4] Ativando zram..."
+sudo systemctl enable --now zramswap
+
+echo "[5/5] Configurando systemd-oomd para agir só em RAM alta (~90%)..."
+sudo mkdir -p /etc/systemd/oomd.conf.d
+sudo bash -c 'cat > /etc/systemd/oomd.conf.d/99-macos-style.conf <<EOF
+[OOM]
+DefaultMemoryPressureLimit=90%
+EOF'
+sudo systemctl restart systemd-oomd
+
+echo
+echo ">>> Configuração concluída!"
+echo "Verifique com: swapon --show && free -h"
+
+
+# Ajustar read-ahead
+# Aumenta leitura antecipada de blocos, ajuda em apps pesados
+sudo blockdev --setra 1024 /dev/nvme0n1
