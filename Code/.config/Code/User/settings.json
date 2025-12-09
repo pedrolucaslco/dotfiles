@@ -35,21 +35,23 @@
   },
   "explorer.confirmDelete": false,
 
+  // "editor.guides.indentation": false,
+  "editor.rulers": [80, 120],
+  
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": false,
   "editor.fontSize": 14,
   "editor.formatOnSaveMode": "modifications",
-  "editor.guides.indentation": true,
   "editor.lineHeight": 1.8,
   "editor.padding.top": 10,
   "editor.renderLineHighlight": "none",
-  "editor.rulers": [80, 120],
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "auto",
   "editor.scrollbar.verticalScrollbarSize": 16,
 
   "breadcrumbs.icons": false,
   "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.enabled": false,
 
   "extensions.autoUpdate": true,
   "errorLens.enabled": false,
@@ -111,5 +113,9 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "editor.minimap.enabled": false
 }
