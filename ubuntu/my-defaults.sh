@@ -56,13 +56,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BA
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom1/ binding '<Super><Shift>S'
 
 # ------------------------------------------------------------------------------
-# Setupp Lazydocker keybind 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom0/ name 'Lazydocker'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom0/ command 'x-terminal-emulator -e lazydocker'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BASE_PATH/custom0/ binding '<Super><Shift>D'
-
-
-# ------------------------------------------------------------------------------
 # Workspaces -------------------------------------------------------------------
 
 # Fix 10 Workspaces

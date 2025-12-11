@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------------------
 # Declarative configuration script ---------------------------------------------
+# ------------------------------------------------------------------------------
 
-# Extra Package Managers
-BREW_ENABLED=true
-FLATPAK_ENABLED=true
+# Setup package managers and installations -------------------------------------
 
-# Custom Repositories
-CUSTOM_REPOSITORIES=(
+apt_essentials=(
+    curl
+    wget
+    git
+    gpg
+    ca-certificates
+    software-properties-common
+    apt-transport-https
+    build-essential
+)
+
+custom_repositories=(
+    vscode
     fastfetch
     tableplus
     docker
@@ -15,41 +26,41 @@ CUSTOM_REPOSITORIES=(
     mwt-desktop
 )
 
-# List of packages to be installed
-APT_PACKAGES=(
-  # Terminal tools
-  stow
-  build-essential
-  fastfetch
-  docker-ce
+apt_packages=(
+    brave-browser
+    code
+    tableplus
+    github-desktop
+    alacritty
+    stow
+    fastfetch
+    docker-ce
+    gnome-sushi
+    gnome-shell-extensions
+    gnome-tweaks
+    flameshot
 
-  # Apps
-  alacritty
-  tableplus
-  github-desktop
-  brave-browser
-
-  # User Experience
-  gnome-sushi
-  gnome-shell-extensions
-  gnome-tweaks
-  flameshot
-
-  # Docker dependences
-  apt-transport-https
+    # Flameshot dependencies to OCR
+    tesseract-ocr 
+    tesseract-ocr-por 
+    xclip 
+    libnotify-bin
 )
 
-FLATPAK_PACKAGES=(
+flatpak_packages=(
   com.mattjakeman.ExtensionManager
   com.belmoussaoui.Authenticator
-  # app.zen_browser.zen
   io.gitlab.adhami3310.Converter
 )
 
-BREW_PACKAGES=(
+brew_packages=(
   gcc
   lazydocker
 )
+
+flatpak_enabled=true
+brew_enabled=true
+docker_enabled=true
 
 # Update the system ------------------------------------------------------------
 
@@ -59,9 +70,45 @@ sudo apt update -y && sudo apt upgrade -y
 # Install essential packages ---------------------------------------------------
 
 echo "==> Installing essential packages..."
-sudo apt install -y curl wget git ca-certificates software-properties-common
+sudo apt install -y "${apt_essentials[@]}"
+echo "==> Essential packages installation complete."
 
-# Configure package managers
+# Add custom repositories ------------------------------------------------------
+
+for repo in "${custom_repositories[@]}"; do
+    
+    echo "-> Checking for $repo repository..."
+    
+    if ! ls /etc/apt/sources.list.d/*"$repo"* &>/dev/null \
+       || ! grep -rq "$repo" /etc/apt/sources.list.d/; then
+    
+        echo "   $repo repository not found. Adding..."
+        source ./repositories/$repo.sh
+    
+    else
+    
+        echo "   $repo repository already exists. Skipping..."
+    
+    fi
+
+done
+
+sudo apt update -y
+
+echo "==> All custom repositories added."
+
+# Install APT packages ---------------------------------------------------------
+
+echo "==> Installing APT packages..."
+
+for pkg in "${apt_packages[@]}"; do
+    echo "-> Installing: $pkg"
+    sudo apt-get install -y "$pkg"
+done
+
+echo "==> APT packages installation complete."
+
+# Configure package managers ---------------------------------------------------
 
 if [ "$BREW_ENABLED" = true ]; then
     
@@ -85,45 +132,11 @@ if [ "$FLATPAK_ENABLED" = true ]; then
     
 fi
 
-# Add custom repositories ------------------------------------------------------
-
-for repo in "${CUSTOM_REPOSITORIES[@]}"; do
-    
-    echo "-> Checking for $repo repository..."
-    
-    if ! ls /etc/apt/sources.list.d/*"$repo"* &>/dev/null \
-       || ! grep -rq "$repo" /etc/apt/sources.list.d/; then
-    
-        echo "   $repo repository not found. Adding..."
-    
-        source ./repositories/$repo.sh
-    
-    else
-    
-        echo "   $repo repository already exists. Skipping..."
-    
-    fi
-
-done
-
-echo "==> All custom repositories added."
-
-# Install APT packages ---------------------------------------------------------
-
-echo "==> Installing APT packages..."
-
-for pkg in "${APT_PACKAGES[@]}"; do
-    echo "-> Installing: $pkg"
-    sudo apt-get install -y "$pkg"
-done
-
-echo "==> APT packages installation complete."
-
 # Install Flatpak packages -----------------------------------------------------
 
 if [ "$FLATPAK_ENABLED" = true ]; then
     echo "==> Installing Flatpak packages..."
-    for pkg in "${FLATPAK_PACKAGES[@]}"; do
+    for pkg in "${flatpak_packages[@]}"; do
         echo "-> Installing: $pkg"
         flatpak install flathub "$pkg"
     done
@@ -136,13 +149,13 @@ fi
 
 if [ "$BREW_ENABLED" = true ]; then
     echo "==> Installing Brew packages..."
-    for pkg in "${BREW_PACKAGES[@]}"; do
+    for pkg in "${brew_packages[@]}"; do
         echo "-> Installing: $pkg"
         brew install "$pkg"
     done
     echo "==> Brew packages installation complete."
 else
-    echo "Brew not enabled. Skipping..."
+    echo "brew not enabled. skipping..."
 fi
 
 # Setup Docker -----------------------------------------------------------------
