@@ -48,9 +48,10 @@ apt_packages=(
 )
 
 flatpak_packages=(
-  com.mattjakeman.ExtensionManager
   com.belmoussaoui.Authenticator
+  com.mattjakeman.ExtensionManager  
   io.gitlab.adhami3310.Converter
+  com.github.ztefn.haguichi
 )
 
 brew_packages=(
