@@ -1,0 +1,10 @@
+alias x="exit"
+alias h="hubsy --debug"
+alias hubsy="~/hubsy/bin/hubsy"
+alias lsx='exa -lah --icons --git'
+# alias ll='exa -lh --icons --git'
+# alias lla='exa -lah --icons --git'
+alias tasksmd="nano ~/tasks.md"
+alias modx="sudo chmod +x"
+alias lzd="lazydocker"
+alias finder='fresh "$(fzf)"'
