@@ -35,7 +35,7 @@
   },
   "explorer.confirmDelete": false,
 
-  // "editor.guides.indentation": false,
+  "editor.guides.indentation": false,
   "editor.rulers": [80, 120],
   
   "editor.fontFamily": "JetBrains Mono",
