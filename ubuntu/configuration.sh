@@ -17,13 +17,12 @@ apt_essentials=(
 )
 
 custom_repositories=(
-    vscode
-    fastfetch
-    tableplus
-    docker
     brave-browser
+    docker
+    fastfetch
     github-desktop
-    mwt-desktop
+    tableplus
+    vscode
 )
 
 apt_packages=(
