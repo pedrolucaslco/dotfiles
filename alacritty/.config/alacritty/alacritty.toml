@@ -1,4 +1,4 @@
-# general.import = [ "~/dotfiles/themes/current/alacritty.toml" ]
+general.import = [ "~/dotfiles/themes/current/alacritty.toml" ]
 
 [env]
 TERM = "xterm-256color"
@@ -10,8 +10,8 @@ italic = { family = "JetBrains Mono  Nerd Font", style = "Italic" }
 size = 12
 
 [window]
-padding.x = 16
-padding.y = 16
+padding.x = 20
+padding.y = 20
 decorations = "none"
 opacity = 0.95
 
