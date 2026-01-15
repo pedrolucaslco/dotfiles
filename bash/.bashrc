@@ -140,3 +140,6 @@ echo "SHORTCUTS ---------------------------------"
 echo "finder - for go to file and open into fresh"
 echo "h - for hubsy"
 echo "lzd - lazydocker"
+
+# opencode
+export PATH=/home/pedro/.opencode/bin:$PATH

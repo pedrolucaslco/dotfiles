@@ -79,7 +79,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$BA
 # ------------------------------------------------------------------------------
 # Windows Behavior ---------------------------------------------------------------
 # Center new windows
-gsettings set org.gnome.mutter center-new-windows true
 
 # ------------------------------------------------------------------------------
 # OPTIONAL ---------------------------------------------------------------------
