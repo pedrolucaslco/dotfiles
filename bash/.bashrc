@@ -136,10 +136,25 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 . "$HOME/.cargo/env"
 
-echo "SHORTCUTS ---------------------------------"
-echo "finder - for go to file and open into fresh"
+echo "SHORTCUTS --------------------------------------"
 echo "h - for hubsy"
 echo "lzd - lazydocker"
+echo "   "
+echo "DEV WORKFLOW -----------------------------------"
+echo "finder - for go to file and open into fresh"
+echo "search [term] - for search some tem inside files"
 
 # opencode
 export PATH=/home/pedro/.opencode/bin:$PATH
+
+
+# global functions
+#search() {
+#  grep -Ril "$1" .
+#}
+search() {
+  [ -z "$1" ] && echo "Uso: search <termo>" && return 1
+
+  grep -Ril "$1" . \
+  | fzf --bind "enter:execute(fresh {+})"
+}

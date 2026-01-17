@@ -9,4 +9,6 @@ alias modx="sudo chmod +x"
 alias lzd="lazydocker"
 alias finder='fresh "$(fzf)"'
 alias chatsql='xdg-open https://chatgpt.com/c/6945a65d-d1ec-8329-9077-1fae557a63ec'
-
+alias easy='cd ~/development/easyschool-laravel/'
+alias pushfiles='cd ~/Files && git push origin HEAD:main'
+alias bye="shutdown now"
