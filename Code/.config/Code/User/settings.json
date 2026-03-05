@@ -117,5 +117,9 @@
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "php.validate.executablePath": "",
+  "gitlens.mode.active": "zen",
+  "supermaven.allowGitignore": true
 }
