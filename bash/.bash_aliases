@@ -12,3 +12,7 @@ alias chatsql='xdg-open https://chatgpt.com/c/6945a65d-d1ec-8329-9077-1fae557a63
 alias easy='cd ~/development/easyschool-laravel/'
 alias pushfiles='cd ~/Files && git push origin HEAD:main'
 alias bye="shutdown now"
+alias ls="ls -a --color=auto"
+alias refresh="source ~/.bashrc"
+alias sshswpass="source ~/scripts/aquilo.sh"
+alias gitsearch="source ~/scripts/git-commit-search.sh"
