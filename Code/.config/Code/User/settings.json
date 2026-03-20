@@ -5,7 +5,7 @@
   "chat.commandCenter.enabled": false,
   
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Light Default",
   "workbench.editor.labelFormat": "short",
   "workbench.iconTheme": "symbols",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
