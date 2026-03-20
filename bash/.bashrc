@@ -65,6 +65,7 @@ echo "DEV WORKFLOW -----------------------------------"
 echo "finder - for go to file and open into fresh"
 echo "search [term] - for search some tem inside files"
 echo "easy - cd into easyschool-laravel folder"
+echo "sshswpass - aquilo.sh"
 
 # opencode
 #export PATH=/home/pedro/.opencode/bin:$PATH
@@ -80,3 +81,10 @@ search() {
   grep -Ril "$1" . \
   | fzf --bind "enter:execute(fresh {+})"
 }
+
+# opencode
+export PATH=/home/pedro/.opencode/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
